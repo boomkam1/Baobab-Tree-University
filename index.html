@@ -23,6 +23,7 @@
             color: var(--text-dark);
             background-color: var(--light-beige);
             line-height: 1.6;
+            overflow-x: hidden; 
         }
 
         h1, h2, h3 {
@@ -73,12 +74,12 @@
             align-items: center;
         }
 
-        /* 로고 이미지 스타일 (HTML img 태그 사용) */
+        /* 로고 이미지 스타일 수정됨 */
         .logo-img {
-            height: 80px; /* 로고 크기를 조금 키웠습니다 */
+            height: 80px;
             width: auto;
             margin-right: 15px;
-           border-radius: 50%; 
+            border-radius: 50%; /* ★ 중요: 이미지를 원형으로 잘라서 검은 모서리 제거 */
         }
         
         .univ-name {
@@ -112,7 +113,6 @@
             color: var(--secondary-beige);
             padding: 8rem 0;
             text-align: center;
-            /* 임시 배경 이미지 적용 (플레이스홀더 서비스 사용) */
             background-image: linear-gradient(rgba(10, 51, 20, 0.7), rgba(10, 51, 20, 0.7)), url('https://placehold.co/1600x900/0A3314/C6B497?text=BBU+Campus+View');
             background-size: cover;
             background-position: center;
@@ -123,6 +123,7 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
         }
 
         .hero p {
@@ -239,25 +240,91 @@
             margin-bottom: 1.5rem;
             color: var(--secondary-beige);
         }
-        
-        /* --- Responsive Design --- */
+
+        /* --- Mobile Responsive Design --- */
         @media (max-width: 768px) {
             header .container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
+                text-align: center;
             }
+            
+            .logo-area {
+                flex-direction: column;
+                margin-bottom: 0.5rem;
+            }
+
+            .logo-img {
+                margin-right: 0;
+                margin-bottom: 10px;
+                height: 70px;
+            }
+            
+            .univ-name {
+                font-size: 1.3rem;
+            }
+
             nav ul {
+                flex-direction: column;
                 gap: 1rem;
+                width: 100%;
             }
+            
+            nav a {
+                display: block;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(198, 180, 151, 0.2);
+            }
+            
+            nav li:last-child a {
+                border-bottom: none;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
             .about-content {
                 flex-direction: column;
+                gap: 2rem;
             }
+            
+            .about-text {
+                text-align: center;
+            }
+
             .about-image-container {
                 width: 100%;
-                height: 300px;
+                height: 250px;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 3rem 1rem;
+            }
+            
+            footer .slogan {
+                font-size: 1.1rem;
             }
         }
 
@@ -268,7 +335,7 @@
     <header>
         <div class="container">
             <div class="logo-area">
-                <img src="./logo1.jpg" class="logo-img">
+                <img src="./logo1.jpg" alt="BBU Logo" class="logo-img">
                 <div class="univ-name">Baobab Tree University</div>
             </div>
             <nav>
@@ -284,7 +351,7 @@
 
     <section class="hero">
         <div class="container">
-            <h1>바오밥나무대학교에 오신 것을 환영합니다.</h1>
+            <h1>환영합니다,<br>바오밥나무대학교입니다.</h1>
             <p>Est. 2020 | Infinite-Expanding Fellowship University<br>
             내 친구와 다른 친구를 연결하는 가상의 캠퍼스에서 진정한 교류를 경험하세요.</p>
             <a href="#about" class="btn btn-primary">BBU 더 알아보기</a>
